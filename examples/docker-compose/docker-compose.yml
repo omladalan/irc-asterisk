@@ -1,0 +1,46 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:16
+    restart: always
+    env_file: .env.postgres
+    volumes:
+      - pg_data_irc_asterisk:/var/lib/postgresql/data
+      - ./docker-compose-files/postgres-irc-asterisk/pg_hba.conf:/etc/postgresql/pg_hba.conf:ro
+      - ./docker-compose-files/postgres-irc-asterisk/init.sql:/docker-entrypoint-initdb.d/init.sql:ro      
+    ports:
+      - 127.0.0.1:5432:5432
+  irc-pgbouncer:
+    container_name: irc-pgbouncer
+    image: omladalan/irc-pgbouncer:latest
+    restart: always
+    env_file: .env.pgbouncer
+    depends_on:
+      - postgres
+    volumes:
+      - ./docker-compose-files/irc-pgbouncer:/tmp
+    ports:
+      - 127.0.0.1:6432:6432
+  irc-asterisk:
+    container_name: irc-asterisk
+    image: omladalan/irc-asterisk:latest
+    restart: always
+    env_file: .env.asterisk
+    depends_on:
+      - postgres
+      - irc-pgbouncer
+    volumes:
+      - irc_asterisk_data:/var/lib/asterisk      
+      - ./docker-compose-files/irc-pgbouncer:/var/run/postgresql
+    ports:    
+      - 127.0.0.1:5038:5038
+      - 127.0.0.1:5060:5060/udp
+      - 127.0.0.1:5060:5060/tcp
+      - 127.0.0.1:5061:5061/udp
+      - 127.0.0.1:5061:5061/tcp
+      - 127.0.0.1:8088:8088
+      - 127.0.0.1:8089:8089      
+      - 127.0.0.1:10000-10100:10000-10100/udp    
+volumes:
+  pg_data_irc_asterisk:
+  irc_asterisk_data:

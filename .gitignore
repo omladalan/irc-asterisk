@@ -1,0 +1,5 @@
+.env
+.pgsocket
+.env.asterisk
+.env.pgbouncer
+.env.postgres

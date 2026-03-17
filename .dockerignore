@@ -1,0 +1,10 @@
+/examples/
+.git
+*.env
+Dockerfile
+DockerfileMakeMenu
+LICENSE
+Makefile
+README.md
+*.md
+*.yml

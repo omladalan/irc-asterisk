@@ -1,0 +1,8 @@
+[asterisk]
+Driver = PostgreSQL
+Description = PostgreSQL connection to ‘asterisk’ database
+Server = ${DB_ASTERISK_HOST}
+Port = ${DB_PORT}
+Database = ${DB_ASTERISK_DATABASE}
+UserName = ${DB_ASTERISK_USER}
+Password = ${DB_ASTERISK_PASS}

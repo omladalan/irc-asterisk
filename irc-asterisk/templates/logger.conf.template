@@ -1,0 +1,9 @@
+[general]
+
+[logfiles]
+
+console = ${AST_LOGGER_CONSOLE}
+
+messages = ${AST_LOGGER_MESSAGES}
+full = ${AST_LOGGER_FULL}
+;security = security
