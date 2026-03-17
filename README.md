@@ -4,6 +4,37 @@ I will write proper documentation for this project, but first I need to update `
 
 Irei escrever uma documentação digna para este projeto, mas antes preciso atualizar o `omladalan/irc-pgbouncer` para o projeto ficar elegante.
 
+## Base Image / Imagem Base
+
+Built on the official **Debian 13 (trixie) slim** variant for a minimal footprint.  
+Construída sobre a variante oficial **Debian 13 (trixie) slim** para um footprint mínimo.
+
+- Official Debian Docker Image: https://hub.docker.com/_/debian
+- Tag used: trixie-slim (or debian:13-slim)
+- Debian is composed of free and open-source software under various licenses (primarily GPL, see https://www.debian.org/legal/licenses).
+
+
+## About this image / Sobre esta imagem
+
+This Docker image contains **Asterisk 22.8-cert** built from official sources.  
+Esta imagem Docker contém o **Asterisk 22.8-cert** compilado a partir das fontes oficiais.
+
+- Project / Projeto: https://www.asterisk.org
+- GitHub: https://github.com/asterisk/asterisk
+- Release: certified-22.8-cert1 (or exact tag used / ou a tag exata utilizada)
+- License / Licença: GPLv2 – full text / texto completo: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+- Source code / Código-fonte: available from / disponível em https://downloads.asterisk.org/pub/telephony/asterisk/
+
+Copyright and authorship of Asterisk belong to the Asterisk project (Sangoma and contributors).  
+Copyright e autoria do Asterisk pertencem ao projeto Asterisk (Sangoma e contribuidores).
+
+Full Asterisk license text is included in the image (e.g., `/usr/src/asterisk-certified-22.8-cert1/COPYING`).  
+O texto completo da licença do Asterisk está incluído na imagem (ex: `/usr/src/asterisk-certified-22.8-cert1/COPYING`).
+
+This project is licensed under GPLv2 (see [LICENSE](./LICENSE) file).  
+Este projeto está licenciado sob GPLv2 (veja o arquivo [LICENSE](./LICENSE)).
+
+
 ## Stack(Postgres 16, irc-pgbouncer and/e irc-asterisk)
 
 ### Path to the example. /Caminho do exemplo. 
@@ -55,37 +86,3 @@ The Python script in the script folder was implemented so that when a call ends,
 O script python que está na pasta script foi implementado para quando encerrar uma ligação, a gravação seja enviada para um repostório S3, vou esplicar como funciona na próxima versão da documentação.
 
 
-
-### Not default make menuselect
-
-Applications
-	app_blind_transfer
-	app_reload
-Call Detail Recording
-	cdr_odbc
-	cdr_pgsql
-PBX Modules:
-	pbx_realtime
-Resource Modulas:
-	res_config_pgsql
-	ENABLE_SRTP_AES_192
-	ENABLE_SRTP_AES_256
-	ENABLE_SRTP_AES_GCM
-Core Sound Packages
-	CORE-SOUNDS-EN-WAV
-	CORE-SOUNDS-EN-ULAW
-	CORE-SOUNDS-EN-ALAW
-	CORE-SOUNDS-EN-GSM
-	CORE-SOUNDS-EN-G722
-Music On Hold File Packages		
-	MOH-OPSOUND-WAV
-	MOH-OPSOUND-ULAW
-	MOH-OPSOUND-ALAW
-	MOH-OPSOUND-GSM
-	MOH-OPSOUND-G722
-Extras Sound Packages	
-	EXTRA-SOUNDS-EN-WAV
-	EXTRA-SOUNDS-EN-ULAW
-	EXTRA-SOUNDS-EN-ALAW
-	EXTRA-SOUNDS-EN-GSM
-	EXTRA-SOUNDS-EN-G722
