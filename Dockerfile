@@ -37,7 +37,7 @@ RUN python3 -m venv .venv
 
 ENV TZ=America/Sao_Paulo
 
-ENV PATH="/pbx/scripts/.venv/bin:$PATH"
+ENV PATH="/irc-asterisk/scripts/.venv/bin:$PATH"
 
 RUN /irc-asterisk/scripts/.venv/bin/pip install --no-cache-dir -r requirements.txt
 
